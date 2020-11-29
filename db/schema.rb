@@ -10,41 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-# rubocop:disable Style/NumericLiterals
-# rubocop:disable Metrics/BlockLength
-ActiveRecord::Schema.define(version: 2020_11_26_204019) do
-  create_table 'answers', force: :cascade do |t|
-    t.string 'text', null: false
-    t.boolean 'correct', default: false, null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2020_11_29_192641) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string "text", null: false
+    t.boolean "correct", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table 'categories', force: :cascade do |t|
-    t.string 'title', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'questions', force: :cascade do |t|
-    t.string 'text', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "questions", force: :cascade do |t|
+    t.string "text", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "test_id"
+    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table 'tests', force: :cascade do |t|
-    t.string 'title', null: false
-    t.integer 'level', default: 0, null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "testing_histories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "test_id"
+    t.boolean "completed", default: false
+    t.index ["test_id"], name: "index_testing_histories_on_test_id"
+    t.index ["user_id"], name: "index_testing_histories_on_user_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'first_name', null: false
-    t.string 'last_name', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "tests", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "level", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_tests_on_category_id"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end
-# rubocop:enable Style/NumericLiterals
-# rubocop:enable Metrics/BlockLength

@@ -9,3 +9,7 @@ Layout/LineLength:
 
 AllCops:
   NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'db/schema.rb'

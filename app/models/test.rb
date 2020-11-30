@@ -1,10 +1,8 @@
 class Test < ApplicationRecord
-  belongs_to :category
-  has_many :questions
-  has_many :testing_histories
-  has_many :users, through: :testing_histories
-
   def self.test_titles_by_category_title(title)
-    Category.find_by(title: title).tests.order(title: :asc).collect(&:title)
+    Test.joins('JOIN categories ON tests.category_id = categories.id')
+        .where('categories.title': title)
+        .order(title: :asc)
+        .select(:title).collect(&:title)
   end
 end

@@ -1,13 +1,7 @@
 class CreateTablesAssociations < ActiveRecord::Migration[6.0]
   def change
-    add_reference :tests, :category
-    add_reference :questions, :test
-    add_reference :answers, :question
-
-    create_table :testing_histories do |t|
-      t.references :user
-      t.references :test
-      t.boolean :completed, default: false
-    end
+    add_reference :tests, :category, foreign_key: true
+    add_reference :questions, :test, foreign_key: true
+    add_reference :answers, :question, foreign_key: true
   end
 end

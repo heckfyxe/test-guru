@@ -14,8 +14,8 @@ users = User.create!([{ first_name: 'Иван', last_name: 'Соловьёв' },
 
 categories = Category.create!([{ title: 'Ruby' }, { title: 'Java' }])
 
-tests = Test.create!([{ title: 'Ruby для начинающих', level: 0, category_id: categories.first.id },
-                      { title: 'Java для начинающих', level: 0, category_id: categories.last.id }])
+tests = Test.create!([{ title: 'Ruby для начинающих', level: 0, category_id: categories.first.id, author_id: users.first.id },
+                      { title: 'Java для начинающих', level: 0, category_id: categories.last.id, author_id: users.first.id }])
 
 questions = Question.create!([{ text: 'Вывод с переводом строки', test_id: tests.first.id },
                               { text: 'Вывод с переводом строки', test_id: tests.last.id }])

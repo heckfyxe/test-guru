@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_one :test
+  has_one :test, dependent: :nullify
 end

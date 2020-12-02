@@ -1,0 +1,2 @@
+class TestingHistory < ApplicationRecord
+end

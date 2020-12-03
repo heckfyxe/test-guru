@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :nullify
 
-  has_many :testing_histories
+  has_many :testing_histories, dependent: :destroy
   has_many :tests, through: :testing_histories
 
   def tests_by_level(level)

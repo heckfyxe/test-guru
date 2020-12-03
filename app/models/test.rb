@@ -4,7 +4,7 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
-  has_many :testing_histories
+  has_many :testing_histories, dependent: :destroy
   has_many :users, through: :testing_histories
 
   def self.test_titles_by_category_title(title)

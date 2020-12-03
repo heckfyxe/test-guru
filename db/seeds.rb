@@ -14,25 +14,25 @@ users = User.create!([{ first_name: 'Иван', last_name: 'Соловьёв' },
 
 categories = Category.create!([{ title: 'Ruby' }, { title: 'Java' }])
 
-tests = Test.create!([{ title: 'Ruby для начинающих', level: 0, category_id: categories.first.id },
-                      { title: 'Java для начинающих', level: 0, category_id: categories.last.id }])
+tests = Test.create!([{ title: 'Ruby для начинающих', level: 0, category: categories.first, author: users.first },
+                      { title: 'Java для начинающих', level: 0, category: categories.last, author: users.first }])
 
-questions = Question.create!([{ text: 'Вывод с переводом строки', test_id: tests.first.id },
-                              { text: 'Вывод с переводом строки', test_id: tests.last.id }])
+questions = Question.create!([{ text: 'Вывод с переводом строки', test: tests.first },
+                              { text: 'Вывод с переводом строки', test: tests.last }])
 
-qid1 = questions.first.id
-qid2 = questions.last.id
-Answer.create!([{ text: 'put', question_id: qid1 },
-                { text: 'print', question_id: qid1 },
-                { text: 'println', question_id: qid1 },
-                { text: 'puts', correct: true, question_id: qid1 },
-                { text: 'System.out.println', correct: true, question_id: qid2 },
-                { text: 'System.out.print', question_id: qid2 },
-                { text: 'println', question_id: qid2 },
-                { text: 'System.println', question_id: qid2 }])
+first_q = questions.first
+last_q = questions.last
+Answer.create!([{ text: 'put', question: first_q },
+                { text: 'print', question: first_q },
+                { text: 'println', question: first_q },
+                { text: 'puts', correct: true, question: first_q },
+                { text: 'System.out.println', correct: true, question: last_q },
+                { text: 'System.out.print', question: last_q },
+                { text: 'println', question: last_q },
+                { text: 'System.println', question: last_q }])
 
 users.each do |user|
   tests.each do |test|
-    TestingHistory.create!(user_id: user.id, test_id: test.id, completed: (user.id + test.id).even?)
+    TestingHistory.create!(user: user, test: test, completed: (user.id + test.id).even?)
   end
 end

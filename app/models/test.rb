@@ -3,8 +3,8 @@ class Test < ApplicationRecord
   scope :medium, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
-  belongs_to :category
-  belongs_to :author, class_name: 'User'
+  belongs_to :category, optional: true
+  belongs_to :author, class_name: 'User', optional: true
 
   has_many :questions, dependent: :destroy
 

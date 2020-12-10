@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
@@ -16,11 +16,22 @@ class QuestionsController < ApplicationController
 
   def edit; end
 
+  def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render plain: 'Updating failed'
+    end
+  end
+
   def create
-    question = Question.new(params.require(:question).permit(:text))
+    question = Question.new(question_params)
     question.test = @test
-    question.save!
-    render plain: question.inspect
+    if question.save
+      redirect_to question
+    else
+      render plain: 'Saving failed'
+    end
   end
 
   def destroy
@@ -30,12 +41,16 @@ class QuestionsController < ApplicationController
 
   private
 
+  def question_params
+    params.require(:question).permit(:text)
+  end
+
   def find_test
     @test = Test.find(params[:test_id])
   end
 
   def find_question
-    @question = @test.questions.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_record_not_found

@@ -1,5 +1,15 @@
-<form action="/tests/<%= @test.id %>/questions/<%= params[:id] %>" method="POST">
+<form action="/questions/<%= @question.id %>" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="_method" value="put">
+
+  <label for="question-text">Вопрос: </label>
+  <input type="text" name="question[text]" id="question-text">
+  <input type="submit" value="Обновить">
+</form>
+
+<form action="/questions/<%= @question.id %>" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="hidden" name="_method" value="delete">
+
   <input type="submit" value="Удалить">
 </form>

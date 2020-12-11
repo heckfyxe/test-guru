@@ -20,17 +20,17 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question
     else
-      render plain: 'Updating failed'
+      render :new
     end
   end
 
   def create
-    question = Question.new(question_params)
-    question.test = @test
-    if question.save
-      redirect_to question
+    @question = Question.new(question_params)
+    @question.test = @test
+    if @question.save
+      redirect_to @question
     else
-      render plain: 'Saving failed'
+      render :new
     end
   end
 

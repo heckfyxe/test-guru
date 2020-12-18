@@ -1,0 +1,7 @@
+<h3><%= question_header(test, question) %></h3>
+<%= form_with model: [test, question] do |form| %>
+  <%= form.label :text %>
+  <%= form.text_field :text, id: :question_text %>
+
+  <%= form.submit %>
+<% end %>

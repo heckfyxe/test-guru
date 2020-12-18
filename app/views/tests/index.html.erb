@@ -3,10 +3,5 @@
     <th>Тест</th>
     <th>Количество вопросов</th>
   </tr>
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= link_to test.title, test %></td>
-      <td><%= test.questions.length %></td>
-    </tr>
-  <% end %>
+  <%= render @tests %>
 </table>

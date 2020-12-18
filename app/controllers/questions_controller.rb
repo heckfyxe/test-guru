@@ -4,10 +4,6 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def show
     render plain: @question.text
   end
@@ -20,7 +16,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to_questions
+      redirect_to_test
     else
       render :new
     end
@@ -30,7 +26,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.test = @test
     if @question.save
-      redirect_to_questions
+      redirect_to_test
     else
       render :new
     end
@@ -38,7 +34,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to_questions
+    redirect_to_test
   end
 
   private
@@ -59,7 +55,7 @@ class QuestionsController < ApplicationController
     render plain: 'Not found'
   end
 
-  def redirect_to_questions
-    redirect_to test_questions_path(@test)
+  def redirect_to_test
+    redirect_to test_path(@test)
   end
 end

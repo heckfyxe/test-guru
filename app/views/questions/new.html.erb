@@ -1,2 +1,7 @@
-<%= render 'questions/form', { test: @test, question: @question } %><br>
+<h3><%= question_header(@test, @question) %></h3>
+
+<%= form_with model: [@test, @question] do |form| %>
+  <%= render 'questions/form', form: form %>
+<% end %>
+<br/>
 <%= render 'questions/back_to_questions', test: @test %>

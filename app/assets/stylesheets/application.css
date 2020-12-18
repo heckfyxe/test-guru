@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+.vertical-space {
+    margin-bottom: 1.5cm;
+}

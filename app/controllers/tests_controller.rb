@@ -1,12 +1,12 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: :show
-  before_action :find_questions, only: :show
-
   def index
     @tests = Test.all
   end
 
-  def show; end
+  def show
+    find_test
+    find_questions
+  end
 
   private
 

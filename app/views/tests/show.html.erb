@@ -3,7 +3,7 @@
     <th>Вопрос</th>
     <th colspan="2">Действия</th>
   </tr>
-  <%= render @questions, test: @test %>
+  <%= render @questions %>
 </table>
 <p>
   <%= link_to 'Создать', new_test_question_path(@test) %>

@@ -1,5 +1,11 @@
 <tr>
-  <td><%= question.text %></td>
+  <td>
+    <% if without_link ||= false %>
+      <%= question.text %>
+    <% else %>
+      <%= link_to question.text, question_path(question) %>
+    <% end %>
+  </td>
   <td><%= link_to 'Изменить', edit_question_path(question) %></td>
   <td><%= link_to 'Удалить', question_path(question), method: :delete, data: { confirm: 'Ты уверен?' } %></td>
 </tr>

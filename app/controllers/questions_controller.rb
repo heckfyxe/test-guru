@@ -5,9 +5,7 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
-  def show
-    render plain: @question.text
-  end
+  def show; end
 
   def new
     @question = Question.new

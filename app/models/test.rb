@@ -8,8 +8,8 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
-  has_many :testing_histories, dependent: :destroy
-  has_many :users, through: :testing_histories
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
 
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

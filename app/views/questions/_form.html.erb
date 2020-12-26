@@ -1,0 +1,6 @@
+<%= form_with model: model do |form| %>
+  <%= form.label :text %>
+  <%= form.text_field :text, id: :question_text %>
+
+  <%= form.submit %>
+<% end %>

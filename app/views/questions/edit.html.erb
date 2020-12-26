@@ -1,15 +1,5 @@
-<form action="/questions/<%= @question.id %>" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="hidden" name="_method" value="put">
+<h3><%= question_header(@test, @question) %></h3>
 
-  <label for="question-text">Вопрос: </label>
-  <input type="text" name="question[text]" id="question-text">
-  <input type="submit" value="Обновить">
-</form>
-
-<form action="/questions/<%= @question.id %>" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="hidden" name="_method" value="delete">
-
-  <input type="submit" value="Удалить">
-</form>
+<%= render 'questions/form', model: @question %>
+<br/>
+<%= render 'questions/back' %>

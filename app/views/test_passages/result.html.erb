@@ -2,12 +2,12 @@
 
 <p>
   Тест выполнен на
-  <span class=<%= @result.success? ? 'success-test' : 'failed-test' %>>
-  <%= @result.percent %>%
+  <span class=<%= @test_passage.success? ? 'success-test' : 'failed-test' %>>
+  <%= @test_passage.success_percent %>%
 </span>
 </p>
 <p>
-  <% if @result.success? %>
+  <% if @test_passage.success? %>
     Успех!
   <% else %>
     Провал...

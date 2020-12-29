@@ -1,6 +1,6 @@
 <h1>Pass the <%= @test_passage.test.title %> Test</h1>
 
-<%= @progress.question_number %>/<%= @progress.questions_count %>
+<%= @test_passage.current_question_number %>/<%= @test_passage.questions_count %>
 <b>
   <%= @test_passage.current_question.text %>
 </b>

@@ -8,28 +8,6 @@ class TestPassage < ApplicationRecord
   before_create :before_create_set_first_question
   before_update :before_update_set_next_question
 
-  class Progress
-    attr_reader :question_number, :questions_count
-
-    def initialize(question_number, questions_count)
-      @question_number = question_number
-      @questions_count = questions_count
-    end
-  end
-
-  class Result
-    attr_reader :percent
-
-    def initialize(success, percent)
-      @success = success
-      @percent = percent
-    end
-
-    def success?
-      @success
-    end
-  end
-
   def completed?
     current_question.nil?
   end
@@ -42,12 +20,20 @@ class TestPassage < ApplicationRecord
     save!
   end
 
-  def progress
-    Progress.new(current_question_number, questions_count)
+  def current_question_number
+    test.questions.pluck(:id).index(current_question.id) + 1
   end
 
-  def result
-    Result.new(success_percent >= 85, success_percent)
+  def questions_count
+    test.questions.count
+  end
+
+  def success?
+    success_percent >= 85
+  end
+
+  def success_percent
+    (correct_answers_count * 100.0 / test.questions.count).round
   end
 
   private
@@ -62,18 +48,6 @@ class TestPassage < ApplicationRecord
 
   def correct_answers
     current_question.answers.right_answers
-  end
-
-  def current_question_number
-    test.questions.pluck(:id).index(current_question.id) + 1
-  end
-
-  def questions_count
-    test.questions.count
-  end
-
-  def success_percent
-    (correct_answers_count * 100.0 / test.questions.count).round
   end
 
   def before_create_set_first_question

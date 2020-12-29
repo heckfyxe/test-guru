@@ -1,23 +1,27 @@
-Answer.seed :id,
-            { id: 1, text: 'Matz', question_id: 1, correct: true },
-            { id: 2, text: 'Бьёрн Страуструп', question_id: 1 },
-            { id: 3, text: 'Юкихиро Мацумото', question_id: 1, correct: true },
-            { id: 4, text: 'Джеймс Гослинг', question_id: 1 }
+ruby_creator_question = Question.find_by(text: 'Кто создал Ruby?')
+Answer.seed :text, :question_id,
+            { text: 'Matz', question: ruby_creator_question, correct: true },
+            { text: 'Бьёрн Страуструп', question: ruby_creator_question },
+            { text: 'Юкихиро Мацумото', question: ruby_creator_question, correct: true },
+            { text: 'Джеймс Гослинг', question: ruby_creator_question }
 
-Answer.seed :id,
-            { id: 5, text: 'put', question_id: 2 },
-            { id: 6, text: 'print', question_id: 2 },
-            { id: 7, text: 'println', question_id: 2 },
-            { id: 8, text: 'puts', question_id: 2, correct: true }
+ruby_output_question = Question.find_by(text: 'Вывод с переводом строки в Ruby')
+Answer.seed :text, :question_id,
+            { text: 'put', question: ruby_output_question },
+            { text: 'print', question: ruby_output_question },
+            { text: 'println', question: ruby_output_question },
+            { text: 'puts', question: ruby_output_question, correct: true }
 
-Answer.seed :id,
-            { id: 9, text: 'Гвидо Ван Россум', question_id: 3 },
-            { id: 10, text: 'Бьёрн Страуструп', question_id: 3 },
-            { id: 11, text: 'Юкихиро Мацумото', question_id: 3 },
-            { id: 12, text: 'Джеймс Гослинг', question_id: 3, correct: true }
+java_creator_question = Question.find_by(text: 'Кто создал Java?')
+Answer.seed :text, :question_id,
+            { text: 'Гвидо Ван Россум', question: java_creator_question },
+            { text: 'Бьёрн Страуструп', question: java_creator_question },
+            { text: 'Юкихиро Мацумото', question: java_creator_question },
+            { text: 'Джеймс Гослинг', question: java_creator_question, correct: true }
 
-Answer.seed :id,
-            { id: 13, text: 'System.out.println', question_id: 4, correct: true },
-            { id: 14, text: 'System.out.print', question_id: 4 },
-            { id: 15, text: 'println', question_id: 4 },
-            { id: 16, text: 'System.println', question_id: 4 }
+java_output_question = Question.find_by(text: 'Вывод с переводом строки в Java')
+Answer.seed :text, :question_id,
+            { text: 'System.out.println', question: java_output_question, correct: true },
+            { text: 'System.out.print', question: java_output_question },
+            { text: 'println', question: java_output_question },
+            { text: 'System.println', question: java_output_question }

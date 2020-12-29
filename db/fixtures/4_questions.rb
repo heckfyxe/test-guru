@@ -1,7 +1,9 @@
-Question.seed :id,
-              { id: 1, text: 'Кто создал Ruby?', test_id: 1 },
-              { id: 2, text: 'Вывод с переводом строки', test_id: 1 }
+ruby_test = Test.find_by(title: 'Ruby для начинающих')
+Question.seed :text, :test_id,
+              { text: 'Кто создал Ruby?', test: ruby_test },
+              { text: 'Вывод с переводом строки в Ruby', test: ruby_test }
 
-Question.seed :id,
-              { id: 3, text: 'Кто создал Java?', test_id: 2 },
-              { id: 4, text: 'Вывод с переводом строки', test_id: 2 }
+java_test = Test.find_by(title: 'Java для начинающих')
+Question.seed :text, :test_id,
+              { text: 'Кто создал Java?', test: java_test },
+              { text: 'Вывод с переводом строки в Java', test: java_test }

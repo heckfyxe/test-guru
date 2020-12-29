@@ -1,3 +1,3 @@
-Test.seed :id,
-          { id: 1, title: 'Ruby для начинающих', level: 0, category_id: 1, author_id: 1 },
-          { id: 2, title: 'Java для начинающих', level: 0, category_id: 2, author_id: 1 }
+Test.seed :title, :level, :category_id, :author_id,
+          { title: 'Ruby для начинающих', level: 0, category: Category.find_by(title: 'Ruby'), author: User.first },
+          { title: 'Java для начинающих', level: 0, category: Category.find_by(title: 'Java'), author: User.first }

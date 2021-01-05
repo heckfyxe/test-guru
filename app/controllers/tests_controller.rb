@@ -20,6 +20,10 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
   end
 
+  def current_user
+    @current_user ||= User.first
+  end
+
   def find_questions
     @questions = @test.questions
   end

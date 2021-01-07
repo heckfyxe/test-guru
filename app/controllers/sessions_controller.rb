@@ -23,6 +23,12 @@ class SessionsController < ApplicationController
   private
 
   def target_path
-    cookies[:path] || tests_path
+    path = cookies[:target_path]
+    if path
+      cookies.delete :target_path
+      path
+    else
+      tests_path
+    end
   end
 end

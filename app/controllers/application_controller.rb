@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    cookies[:path] = current_user ? nil : request.path
-    redirect_to login_path unless current_user
+    return if logged_in?
+
+    cookies[:target_path] = request.path
+    redirect_to login_path
   end
 
   def current_user

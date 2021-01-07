@@ -1,0 +1,11 @@
+<p class="nav title">
+  <span><b><%= link_to 'Test Guru', root_path %></b></span>
+</p>
+
+<% if logged_in? %>
+  <p class="nav user">
+    Welcome, <b><%= "#{current_user.first_name} #{current_user.last_name}" %></b> Guru
+    <br>
+    <%= link_to 'Выйти', logout_path %>
+  </p>
+<% end %>

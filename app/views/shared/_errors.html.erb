@@ -1,0 +1,15 @@
+<p>
+  <% if resource.errors.present? %>
+    <b>
+      <%= resource.errors.size %>
+      <%= I18n.translate :errors, count: resource.errors.size %>:
+    </b>
+  <% end %>
+</p>
+<ul>
+  <% resource.errors.full_messages.each do |error| %>
+    <li>
+      <%= error %>
+    </li>
+  <% end %>
+</ul>

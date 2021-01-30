@@ -59,6 +59,6 @@ class QuestionsController < ApplicationController
   end
 
   def redirect_to_test
-    redirect_to test_path(@test)
+    redirect_to admin_test_path(@test)
   end
 end

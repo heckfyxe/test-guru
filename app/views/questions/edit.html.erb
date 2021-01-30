@@ -2,4 +2,4 @@
 
 <%= render 'questions/form', model: @question %>
 <br/>
-<%= render 'questions/back' %>
+<%= link_to 'Назад', admin_test_path(@question.test) %>

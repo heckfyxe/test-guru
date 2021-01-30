@@ -1,5 +1,5 @@
 <h3><%= question_header(@test, @question) %></h3>
 
-<%= render 'questions/form', model: @question %>
+<%= render 'form', model: @question %>
 <br/>
 <%= link_to 'Назад', admin_test_path(@question.test) %>

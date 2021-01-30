@@ -11,7 +11,7 @@
 <h2>Questions</h2>
 
 <p>
-  <%= link_to 'Добавить вопрос', new_test_question_path(@test) %>
+  <%= link_to 'Добавить вопрос', new_admin_test_question_path(@test) %>
 </p>
 
 <table>
@@ -19,7 +19,7 @@
     <th>Текст вопроса</th>
     <th colspan="2">Действия</th>
   </tr>
-  <%= render partial: 'questions/question', collection: @test.questions %>
+  <%= render @test.questions %>
 </table><br>
 
 <%= link_to 'Изменить', edit_admin_test_path(@test) %>

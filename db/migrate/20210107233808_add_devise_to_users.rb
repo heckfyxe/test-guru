@@ -38,8 +38,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
       # t.timestamps null: false
     end
 
-    remove_columns :users, :first_name, :last_name, :password_digest
+    remove_column :users, :password_digest
     change_column_default :users, :email, ''
+    change_column_default :users, :first_name, ''
+    change_column_default :users, :last_name, ''
 
     add_index :users, :email, unique: true
     add_index :users, :reset_password_token, unique: true

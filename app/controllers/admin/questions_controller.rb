@@ -2,7 +2,6 @@ class Admin
   class QuestionsController < Admin::BaseController
     before_action :find_test, only: %i[new create]
     before_action :find_question, except: %i[new create]
-    before_action :find_question_test, except: %i[new create show]
 
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
@@ -25,8 +24,7 @@ class Admin
     end
 
     def create
-      @question = Question.new(question_params)
-      @question.test = @test
+      @question = @test.questions.build(question_params)
       if @question.save
         redirect_to_test
       else
@@ -53,16 +51,12 @@ class Admin
       @question = Question.find(params[:id])
     end
 
-    def find_question_test
-      @test = @question.test
-    end
-
     def rescue_with_record_not_found
       render plain: 'Not found'
     end
 
     def redirect_to_test
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@question.test)
     end
   end
 end

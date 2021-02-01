@@ -1,0 +1,15 @@
+<%= form_with model: [:admin, *resource], local: true do |form| %>
+  <%= render 'shared/errors', resource: [*resource].last %>
+
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_field :text, id: :answer_text %>
+  </p>
+
+  <p>
+    <%= form.label :correct %><br>
+    <%= form.check_box :correct, id: :answer_correct %>
+  </p>
+
+  <%= form.submit %>
+<% end %>

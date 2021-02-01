@@ -1,0 +1,26 @@
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<h2>Questions</h2>
+
+<p>
+  <%= link_to 'Добавить вопрос', new_admin_test_question_path(@test) %>
+</p>
+
+<table>
+  <tr>
+    <th>Текст вопроса</th>
+    <th colspan="2">Действия</th>
+  </tr>
+  <%= render @test.questions %>
+</table><br>
+
+<%= link_to 'Изменить', edit_admin_test_path(@test) %>
+<%= link_to 'Назад', admin_tests_path %>

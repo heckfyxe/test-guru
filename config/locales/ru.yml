@@ -5,3 +5,4 @@ ru:
     one: 'ошибка'
     few: 'ошибки'
     many: 'ошибок'
+  gist_title: "Вопрос о %{test_title} от TestGuru"

@@ -6,6 +6,6 @@
     </p>
   <% end %>
 
-  <p><%= link_to 'Сделать gist вопроса', gist_test_passage_path(test_passage), method: :post %></p>
+  <p><%= link_to 'Сделать gist вопроса', test_passage_gists_path(test_passage), method: :post %></p>
   <%= form.submit 'Ответить' %>
 <% end %>

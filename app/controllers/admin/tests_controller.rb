@@ -4,7 +4,6 @@ class Admin
 
     def index
       @tests = Test.all
-      @gists = Gist.all
     end
 
     def show

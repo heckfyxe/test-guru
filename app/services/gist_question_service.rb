@@ -1,5 +1,4 @@
 class GistQuestionService
-
   ACCESS_TOKEN = Rails.application.credentials.github[:access_key]
 
   def initialize(question, client: nil)
@@ -10,7 +9,10 @@ class GistQuestionService
 
   def call
     @client.create_gist(gist_params)
-    @client.last_response
+  end
+
+  def success?
+    @client.last_response.status == 201
   end
 
   private

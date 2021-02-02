@@ -1,6 +1,9 @@
 <h1>Тесты</h1>
 
 <p>
+  <%= link_to "Открыть Gists", admin_gists_path %>
+</p>
+<p>
   <%= link_to 'Создать тест', new_admin_test_path %>
 </p>
 
@@ -11,13 +14,4 @@
     <th colspan="3">Действия</th>
   </tr>
   <%= render @tests %>
-</table>
-
-<table>
-  <tr>
-    <th>Вопрос</th>
-    <th>Ссылка</th>
-    <th>Пользователь</th>
-    <%= render @gists %>
-  </tr>
 </table>

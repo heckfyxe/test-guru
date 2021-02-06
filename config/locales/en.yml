@@ -35,3 +35,4 @@ en:
     zero: 'errors'
     one: 'error'
     many: 'errors'
+  gist_title: "A question about %{test_title} from TestGuru"

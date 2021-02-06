@@ -6,6 +6,11 @@ Style/Documentation:
 
 Layout/LineLength:
   Max: 140
+  Exclude:
+    - 'config/initializers/devise.rb'
+
+Metrics/MethodLength:
+  Max: 15
 
 AllCops:
   NewCops: enable
@@ -13,3 +18,5 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'bin/*'

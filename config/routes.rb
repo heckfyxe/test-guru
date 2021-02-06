@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :test_passages, only: %i[show update] do
+    resources :gists, only: :create
     get :result, on: :member
   end
 
@@ -18,5 +19,6 @@ Rails.application.routes.draw do
         resources :answers, except: :index
       end
     end
+    resources :gists, only: :index
   end
 end

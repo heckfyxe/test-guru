@@ -13,8 +13,6 @@ document.addEventListener('turbolinks:load', () => {
         }
 
         let password = document.querySelector('#user_password').value
-        console.log(rightIcon)
-        console.log(wrongIcon)
         if (confirmation === password) {
             rightIcon.classList.remove('hide')
             wrongIcon.classList.add('hide')

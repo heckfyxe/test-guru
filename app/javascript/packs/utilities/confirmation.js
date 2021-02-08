@@ -6,20 +6,21 @@ document.addEventListener('turbolinks:load', () => {
         let rightIcon = e.target.parentNode.querySelector('.octicon-check-circle')
         let wrongIcon = e.target.parentNode.querySelector('.octicon-x-circle-fill')
         let confirmation = e.target.value
-        if (confirmation) {
-            let password = document.querySelector('#user_password').value
-            console.log(rightIcon)
-            console.log(wrongIcon)
-            if (confirmation === password) {
-                rightIcon.classList.remove('hide')
-                wrongIcon.classList.add('hide')
-            } else {
-                wrongIcon.classList.remove('hide')
-                rightIcon.classList.add('hide')
-            }
-        } else {
+        if (!confirmation) {
             rightIcon.classList.add('hide')
             wrongIcon.classList.add('hide')
+            return
+        }
+
+        let password = document.querySelector('#user_password').value
+        console.log(rightIcon)
+        console.log(wrongIcon)
+        if (confirmation === password) {
+            rightIcon.classList.remove('hide')
+            wrongIcon.classList.add('hide')
+        } else {
+            wrongIcon.classList.remove('hide')
+            rightIcon.classList.add('hide')
         }
     })
 })

@@ -1,15 +1,15 @@
-<p>
-  <% if resource.errors.present? %>
+<% if resource.present? && resource.errors.present? %>
+  <%= content_tag :div, class: 'resource-errors', data: { resource_id: resource.id } do %>
     <b>
       <%= resource.errors.size %>
       <%= I18n.translate :errors, count: resource.errors.size %>:
     </b>
+    <ul>
+      <% resource.errors.full_messages.each do |error| %>
+        <li>
+          <%= error %>
+        </li>
+      <% end %>
+    </ul>
   <% end %>
-</p>
-<ul>
-  <% resource.errors.full_messages.each do |error| %>
-    <li>
-      <%= error %>
-    </li>
-  <% end %>
-</ul>
+<% end %>

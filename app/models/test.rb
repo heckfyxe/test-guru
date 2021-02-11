@@ -12,8 +12,9 @@ class Test < ApplicationRecord
   has_many :users, through: :test_passages
 
   validates :title, presence: true
-  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :title, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :duration_in_minutes, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_nil: true
 
   def self.test_titles_by_category_title(title)
     Category.find_by(title: title).tests.order(title: :asc).pluck(:title)

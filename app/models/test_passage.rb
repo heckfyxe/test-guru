@@ -5,14 +5,21 @@ class TestPassage < ApplicationRecord
 
   validates :correct_answers_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  before_create :before_create_set_first_question
+  before_create :before_create_set_first_question, :before_create_set_end_at_column
   before_update :before_update_set_next_question
 
   def completed?
+    return true if time_over?
+
     current_question.nil?
   end
 
   def accept!(answer_ids)
+    if time_over?
+      self.current_question = nil
+      return
+    end
+
     return if answer_ids.nil?
 
     self.correct_answers_count += 1 if correct_answer?(answer_ids)
@@ -38,6 +45,12 @@ class TestPassage < ApplicationRecord
 
   private
 
+  def time_over?
+    return false if end_at.nil?
+
+    Time.current.after?(end_at)
+  end
+
   def correct_answer?(answer_ids)
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
@@ -52,6 +65,10 @@ class TestPassage < ApplicationRecord
 
   def before_create_set_first_question
     self.current_question = test.questions.first if test.present?
+  end
+
+  def before_create_set_end_at_column
+    self.end_at = Time.current + test.duration_in_minutes.minutes if test&.duration_in_minutes.present?
   end
 
   def before_update_set_next_question

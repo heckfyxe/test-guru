@@ -1,5 +1,11 @@
 <h1>Pass the <%= @test_passage.test.title %> Test</h1>
 
+<p id="test_passage_end_at" class="hide"><%= @test_passage.end_at.present? ? @test_passage.end_at.in_milliseconds : 'no_timer' %></p>
+
+<h4>
+  <span id="testing_timer"></span>
+</h4>
+
 <p>
   <progress max="<%= @test_passage.questions_count %>" value="<%= @test_passage.current_question_number - 1 %>">
     <%= @test_passage.current_question_number %>

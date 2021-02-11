@@ -7,3 +7,11 @@ module ApplicationHelper
     "https://github.com/#{author}/#{repo}"
   end
 end
+
+module ActiveSupport
+  class TimeWithZone
+    def in_milliseconds
+      (to_f * 1000).to_i
+    end
+  end
+end

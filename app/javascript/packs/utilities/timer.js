@@ -6,23 +6,18 @@ document.addEventListener('turbolinks:load', () => {
     let countDownDate = new Date(parseInt(endAt.textContent)).getTime()
 
     function timerAct() {
-        let now = new Date().getTime();
-        let timeLeft = countDownDate - now;
-        console.log(timeLeft)
+        let now = new Date();
 
-        if (timeLeft < 0) {
+        if (now > countDownDate) {
             clearInterval(timer)
             document.querySelector('input[type="submit"]').click()
             return true
         }
 
-        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        hours = hours.toString().padStart(2, '0')
-        minutes = minutes.toString().padStart(2, '0')
-        seconds = seconds.toString().padStart(2, '0')
+        let leftDate = new Date(countDownDate - now)
+        let hours = leftDate.getUTCHours().toString().padStart(2, '0')
+        let minutes = leftDate.getUTCMinutes().toString().padStart(2, '0')
+        let seconds = leftDate.getUTCSeconds().toString().padStart(2, '0')
 
         document.querySelector('#testing_timer').textContent = hours + ':' + minutes + ':' + seconds
     }

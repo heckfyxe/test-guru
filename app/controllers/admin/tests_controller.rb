@@ -60,9 +60,7 @@ class Admin
     end
 
     def test_params
-      p = params.require(:test).permit(:title, :level, :category_id, :duration_in_minutes)
-      p[:duration_in_minutes] = nil if p[:duration_in_minutes].to_i.zero?
-      p
+      params.require(:test).permit(:title, :level, :category_id, :duration_in_minutes)
     end
 
     def find_questions

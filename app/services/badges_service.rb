@@ -8,7 +8,9 @@ class BadgesService
   end
 
   def call
-    @badges.select { |badge| send(badge.badge_type, badge.option) }
+    @badges.select do |badge|
+      send("#{badge.badge_type}?", badge.option)
+    end
   end
 
   private

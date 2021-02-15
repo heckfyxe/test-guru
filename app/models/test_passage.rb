@@ -1,4 +1,8 @@
 class TestPassage < ApplicationRecord
+  scope :success, -> { where('score >= ?', SUCCESS_PERCENT) }
+
+  SUCCESS_PERCENT = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', foreign_key: :current_question_id, optional: true
@@ -16,6 +20,7 @@ class TestPassage < ApplicationRecord
     return if answer_ids.nil?
 
     self.correct_answers_count += 1 if correct_answer?(answer_ids)
+    self.score = success_percent
 
     save!
   end
@@ -29,7 +34,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    success_percent >= 85
+    success_percent >= SUCCESS_PERCENT
   end
 
   def success_percent

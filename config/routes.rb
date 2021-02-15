@@ -13,7 +13,12 @@ Rails.application.routes.draw do
     get :result, on: :member
   end
 
+  resources :badges, only: :index
+
   namespace :admin, shallow: true do
+    resources :gists, only: :index
+    resources :badges
+
     resources :tests do
       patch :update_inline, on: :member
 
@@ -21,6 +26,5 @@ Rails.application.routes.draw do
         resources :answers, except: :index
       end
     end
-    resources :gists, only: :index
   end
 end

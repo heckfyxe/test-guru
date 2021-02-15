@@ -1,0 +1,11 @@
+<h1>Достижения</h1>
+
+<%= link_to 'Создать новое', new_admin_badge_path %>
+
+<table>
+  <tr>
+    <th>Название</th>
+    <th colspan="2">Действия</th>
+  </tr>
+  <%= render @badges %>
+</table>

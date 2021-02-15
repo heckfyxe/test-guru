@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_01_152818) do
+ActiveRecord::Schema.define(version: 2021_02_14_214353) do
 
   create_table "answers", force: :cascade do |t|
     t.string "text", null: false
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_02_01_152818) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "image_url", null: false
+    t.string "badge_type", null: false
+    t.string "option"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -52,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_02_01_152818) do
     t.integer "correct_answers_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "score"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"
@@ -94,6 +104,15 @@ ActiveRecord::Schema.define(version: 2021_02_01_152818) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_badges", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "badge_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["badge_id"], name: "index_users_badges_on_badge_id"
+    t.index ["user_id"], name: "index_users_badges_on_user_id"
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
@@ -103,4 +122,6 @@ ActiveRecord::Schema.define(version: 2021_02_01_152818) do
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
+  add_foreign_key "users_badges", "badges"
+  add_foreign_key "users_badges", "users"
 end

@@ -56,7 +56,7 @@ class Admin
     end
 
     def rescue_from_record_not_found
-      render plain: 'Вопрос не найден'
+      render plain: t(:not_found)
     end
   end
 end

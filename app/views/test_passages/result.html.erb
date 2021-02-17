@@ -1,7 +1,7 @@
-<h3>Тест <%= @test_passage.test.title %> завершен</h3>
+<h3><%= t(:test) %> <%= @test_passage.test.title %> <%= t(:finished) %></h3>
 
 <p>
-  Тест выполнен на
+  <%= t(:test_solved_by) %>
   <span class=<%= @test_passage.success? ? 'success-test' : 'failed-test' %>>
   <%= @test_passage.success_percent %>%
 </span>
@@ -14,4 +14,4 @@
   <% end %>
 </p>
 <br/>
-<%= link_to 'Перейти к тестам', tests_path %>
+<%= link_to t(:go_to_tests), tests_path %>

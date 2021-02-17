@@ -1,4 +1,4 @@
-Hooray!
+<%= t(:hooray) %>>
 =======
 
-Congratulations! You completed the "<%= @test.title %>" test. Choose your next test <%= tests_url %>
+<%= t(:text_completed_test, test_title: @test.title, tests_url: tests_url) %>

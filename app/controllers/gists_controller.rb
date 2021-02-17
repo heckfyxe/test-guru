@@ -7,9 +7,9 @@ class GistsController < ApplicationController
 
     flash_options = if service.success?
                       Gist.create!(question: question, url: result.html_url, user: current_user)
-                      { notice: "Gist успешно создан. Ссылка на gist: #{result.html_url}" }
+                      { notice: t('gist.success', url: result.html_url) }
                     else
-                      { alert: 'Gist не был создан' }
+                      { alert: t('gist.fail') }
                     end
 
     redirect_to test_passage, flash_options

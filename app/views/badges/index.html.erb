@@ -1,0 +1,16 @@
+<h1><%= t('badge.earned') %></h1>
+
+<ul>
+  <%= render @earned_badges %>
+</ul>
+<br />
+
+<h1><%= t('badge.other') %></h1>
+
+<ul>
+  <%= render @other_badges %>
+</ul>
+
+<p>
+  <%= link_to t(:back), tests_path %>
+</p>

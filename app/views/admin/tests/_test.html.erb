@@ -3,15 +3,16 @@
     <%= link_to test.title, admin_test_path(test), class: 'test-title', data: { test_id: test.id } %>
     <%= render 'form_inline', resource: test == @test ? @test : test %>
   </td>
+  <td class="align-middle"><%= test_level(test.level) %></td>
   <td class="align-middle"><%= test.questions.size %></td>
-  <td class="align-middle"><%= link_to 'Показать', admin_test_path(test) %></td>
+  <td class="align-middle"><%= link_to t(:show), admin_test_path(test) %></td>
   <td class="align-middle">
-    <%= link_to 'Редактировать', edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>
+    <%= link_to t(:edit), edit_admin_test_path(test), data: { test_id: test.id }, class: 'form-inline-link' %>
   </td>
   <td class="align-middle">
-    <%= link_to 'Удалить',
+    <%= link_to t(:delete),
                 admin_test_path(test),
                 method: :delete,
-                data: { confirm: "Вы уверены?" } %>
+                data: { confirm: t(:are_you_sure) } %>
   </td>
 </tr>

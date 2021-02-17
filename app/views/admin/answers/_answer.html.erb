@@ -1,6 +1,6 @@
 <tr>
   <td><%= answer.text %></td>
   <td><%= answer.correct ? "+" : "-" %></td>
-  <td><%= link_to "Изменить", edit_admin_answer_path(answer) %></td>
-  <td><%= link_to "Удалить", admin_answer_path(answer), method: :delete, data: { confirm: "Вы уверены?" } %></td>
+  <td><%= link_to t(:edit), edit_admin_answer_path(answer) %></td>
+  <td><%= link_to t(:delete), admin_answer_path(answer), method: :delete, data: { confirm: t(:are_you_sure) } %></td>
 </tr>

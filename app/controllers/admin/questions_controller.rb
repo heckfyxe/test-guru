@@ -52,7 +52,7 @@ class Admin
     end
 
     def rescue_with_record_not_found
-      render plain: 'Not found'
+      render plain: t(:not_found)
     end
 
     def redirect_to_test

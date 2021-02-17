@@ -7,7 +7,7 @@ class BadgesService
     @badges = Badge.where.not(id: @user.badges.ids)
   end
 
-  def call
+  def new_earned_badges
     @badges.select do |badge|
       send("#{badge.badge_type}?", badge.option)
     end
@@ -19,10 +19,10 @@ class BadgesService
     @current_test_passages.count == 1 if @test_passage.success?
   end
 
-  def category?(category)
-    return false unless @test.category.title == category
+  def category?(category_id)
+    return false unless @test.category.id == category_id.to_i
 
-    test_ids = Category.find_by(title: category).tests.ids
+    test_ids = Category.find(category_id.to_i).tests.ids
     test_ids.size == count_tests_success(test_ids)
   end
 

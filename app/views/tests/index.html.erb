@@ -1,11 +1,15 @@
+<p>
+  <%= link_to t('badge.open'), badges_path %>
+</p>
 <table class="table">
   <tr>
     <th class="sort-by-title pointer">
-      Тест
+      <%= t(:test) %>
       <%= octicon 'arrow-up', class: 'text-success hide' %>
       <%= octicon 'arrow-down', class: 'text-success hide' %></th>
-    <th>Количество вопросов</th>
-    <th>Действия</th>
+    <th><%= t(:level) %></th>
+    <th><%= t(:questions_count) %></th>
+    <th><%= t(:actions) %></th>
   </tr>
   <%= render @tests %>
 </table>

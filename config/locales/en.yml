@@ -1,38 +1,69 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  welcome: 'Welcome, %{name}'
+  tests: 'Tests'
+  admin:
+    no_access: "You don't have access to this page"
   errors:
     zero: 'errors'
     one: 'error'
     many: 'errors'
-  gist_title: "A question about %{test_title} from TestGuru"
+  gist:
+    title: "A question about %{test_title} from TestGuru"
+    success: 'Gist has created successfully. Link to gist: %{url}'
+    fail: 'Gist creation has failed'
+  badge:
+    congratulations: "Congratulations! You've earned new badges."
+    open: "Open badges"
+    earned: "Earned badges"
+    other: "Other badges"
+  not_found: 'Not found'
+  edit: "Edit"
+  delete: "Delete"
+  back: "Back"
+  create_new: "Create new"
+  question: "Question"
+  link: "Link"
+  user: "User"
+  are_you_sure: "Are you sure?"
+  text: "Text"
+  correctness: "Correctness"
+  actions: "Actions"
+  submit: "Submit"
+  show: "Show"
+  open_gists: "Open gists"
+  title: "Title"
+  level: 'Level'
+  levels:
+    zero: "Zero"
+    beginner: "Beginner"
+    medium: "Medium"
+    advanced: "Advanced"
+    hard: "Hard"
+    expert: "Expert"
+  questions_count: "Questions count"
+  questions: "Questions"
+  logout: "Logout"
+  edit_answer: "Edit answer"
+  answers: "Answers"
+  create_answer: "Create answer"
+  answer: "Answer"
+  edit_badge: "Edit badge"
+  badges: "Badges"
+  create_badge: "Create badge"
+  gists: "Gists"
+  tests_site: "Site with different themes tests"
+  education_project: "Education project of online school"
+  make_gist: "Make gist"
+  to_answer: "To answer"
+  test: "Test"
+  finished: "finished"
+  test_solved_by: "Test solved by"
+  go_to_tests: "Go to tests"
+  pass_the_test: "Pass %{title} test"
+  start: "Start"
+  hooray: "Hooray!"
+  email_completed_test: "Congratulations! You completed the %{test_title} test. Why not to finish"
+  more: "More"
+  text_completed_test: "Congratulations! You completed the %{test_title} test. Choose your next test %{ tests_url}"
+  edit_question: "Edit %{test_title} question"
+  create_question: "Создать вопрос для теста %{test_title}"

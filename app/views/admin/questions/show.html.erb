@@ -2,14 +2,14 @@
 <br/>
 <h1>Ответы</h1>
 <p>
-  <%= link_to "Создать новый ответ", new_admin_question_answer_url(@question) %>
+  <%= link_to t(:create_new), new_admin_question_answer_url(@question) %>
 </p>
 
 <table>
   <tr>
-    <th>Текст</th>
-    <th>Правильность</th>
-    <th colspan="2">Дейстия</th>
+    <th><%= t(:text) %></th>
+    <th><%= t(:correctness) %></th>
+    <th colspan="2"><%= t(:actions) %></th>
   </tr>
   <%= render @answers %>
 </table>

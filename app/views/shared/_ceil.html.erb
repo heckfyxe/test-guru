@@ -6,6 +6,6 @@
   <p class="nav user">
     Welcome, <b><%= current_user.email %></b> Guru
     <br>
-    <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+    <%= link_to t(:logout), destroy_user_session_path, method: :delete %>
   </p>
 <% end %>

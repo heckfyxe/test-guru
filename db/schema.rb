@@ -61,9 +61,8 @@ ActiveRecord::Schema.define(version: 2021_02_14_214353) do
     t.integer "correct_answers_count", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "score"
-    t.integer "duration"
     t.datetime "end_at"
+    t.integer "score"
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"

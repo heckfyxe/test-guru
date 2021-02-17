@@ -1,8 +1,70 @@
 ru:
+  welcome: 'Привет, %{name}'
   tests: 'Тесты'
+  admin:
+    no_access: 'У вас нет доступа к этой странице'
   errors:
     zero: 'ошибок'
     one: 'ошибка'
     few: 'ошибки'
     many: 'ошибок'
-  gist_title: "Вопрос о %{test_title} от TestGuru"
+  gist:
+    title: "Вопрос о %{test_title} от TestGuru"
+    success: "Gist успешно создан. Ссылка на gist: %{url}"
+    fail: 'Gist не был создан'
+  badge:
+    congratulations: 'Поздравляем! Вы получили новые достижения'
+    open: "Открыть достижения"
+    earned: "Полученные достижения"
+    other: "Остальные достижения"
+  not_found: 'Не найден'
+  edit: "Изменить"
+  delete: "Удалить"
+  back: "Назад"
+  create_new: "Создать новое"
+  question: "Вопрос"
+  link: "Ссылка"
+  user: "Пользователь"
+  are_you_sure: "Ты уверен?"
+  text: "Текст"
+  correctness: "Правильность"
+  actions: "Дейстия"
+  submit: "Отправить"
+  show: "Показать"
+  open_gists: "Открыть Gists"
+  title: "Название"
+  level: "Уровень"
+  levels:
+    zero: "Нулевой"
+    beginner: "Начинающий"
+    medium: "Средний"
+    advanced: "Продвинутый"
+    hard: "Сложный"
+    expert: "Эксперт"
+  questions_count: "Количество вопросов"
+  questions: "Вопросы"
+  logout: "Выйти"
+  edit_answer: "Изменить ответ"
+  answers: "Ответы"
+  create_answer: "Создать ответ"
+  answer: "Ответ"
+  edit_badge: "Изменить достижение"
+  badges: "Достижения"
+  create_badge: "Создать достижение"
+  gists: "Gists"
+  tests_site: "Сайт онлайн тестов на различные темы"
+  education_project: "Учебный проект в онлайн-школе"
+  make_gist: "Сделать gist вопроса"
+  to_answer: "Ответить"
+  test: "Тест"
+  finished: "завершен"
+  test_solved_by: "Тест выполнен на"
+  go_to_tests: "Перейти к тестам"
+  pass_the_test: "Пройти тест %{title}"
+  start: "Начать"
+  hooray: "Ураа!"
+  email_completed_test: "Поздравляем! Вы завершили тест %{test_title}. Почему не пройти"
+  more: "Больше"
+  text_completed_test: "Поздравляем! Вы завершили тест %{test_title}. Пройти больше тестов на %{tests_url}"
+  edit_question: "Изменить вопрос %{test_title}"
+  create_question: "Create new %{test_title} question"
